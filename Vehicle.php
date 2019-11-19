@@ -8,8 +8,9 @@ class Vehicle
     protected $nbSeats;
     protected $nbWheels;
 
-    public function __construct(string $color, int $nbSeats)
+    public function __construct(string $color, int $nbSeats, int $currentSpeed)
     {
+        $this->currentSpeed = $currentSpeed;
         $this->color = $color;
         $this->nbSeats = $nbSeats;
     }

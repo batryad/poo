@@ -9,11 +9,11 @@ require_once 'MotorWay.php';
 require_once 'PedestrianWay.php';
 require_once 'ResidentialWay.php';
 require_once 'Skateboard.php';
-$bicycle = new Bicycle('blue', 1);
+$bicycle = new Bicycle('blue', 1,5);
 echo $bicycle->forward();
-$cars = new Vehicle("Rouge", 5, "Diesel");
-$carsOptions = $truckEnergy = new Cars('Blue', '5', 'Electric');
-$truck = new Truck('Green', '3');
+$cars = new Vehicle("Rouge", 5, 5);
+$carsOptions = $truckEnergy = new Cars('Blue', 5, 100, 4 );
+$truck = new Truck('Green', 3, 5);
 // Moving bike
 echo $bicycle->forward();
 echo '<br> Vitesse du vélo : ' . $bicycle->getCurrentSpeed() . ' km/h' . '<br>';
@@ -49,20 +49,41 @@ echo '<br> Stockage capacity : ' . $truck->getStockageCapacity() . '<br>';
 echo '<br>';
 echo '<br>';
 $MotorWay1 = new MotorWay();
-$Car1 = new Cars("blue", 4, "fuel");
-$Car2 = new Cars("red", 6, "electric");
+$Car1 = new Cars("blue", 4, 5,5);
+$Car2 = new Cars("red", 6, 5, 5);
 $MotorWay1->addVehicle($Car1);
 $MotorWay1->addVehicle($Car2);
-var_dump($MotorWay1->currentVehicles());
+
 $ResidentialWay1 = new ResidentialWay();
-$Bike2 = new Bicycle("brown", 8);
-$Car2 = new Cars("yellow", 12, "sun");
+$Bike2 = new Bicycle("brown", 6,6);
+$Car2 = new Cars("yellow", 12, 7,6);
 $ResidentialWay1->addVehicle($Bike2);
 $ResidentialWay1->addVehicle($Car2);
-var_dump($ResidentialWay1);
+
 $PedestrianWay1 = new PedestrianWay();
-$Bike1 = new Bicycle("red", 3);
-$Skate1 = new Skateboard("black", 1);
+$Bike1 = new Bicycle("red", 3, 4);
+$Skate1 = new Skateboard("black", 1,6);
 $PedestrianWay1->addVehicle($Bike1);
 $PedestrianWay1->addVehicle($Skate1);
-var_dump($PedestrianWay1);
+$mclaren = new Cars('red', 4, 10,5);
+$mclaren->forward();
+$mclaren->setCurrentSpeed(40);
+if ($mclaren->switchOn() == true)
+{
+    echo 'good';
+}
+else {
+    echo 'pas good';
+}
+
+
+$merco = new Bicycle('red', 4, 10);
+$merco->forward();
+$merco->setCurrentSpeed(4);
+if ($merco->switchOn() == true)
+{
+    echo 'good';
+}
+else {
+    echo 'pas good';
+}

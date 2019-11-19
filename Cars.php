@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Vehicle.php';
+require_once 'LightableInterface.php';
 
 class Cars extends Vehicle
 {
@@ -11,9 +12,9 @@ class Cars extends Vehicle
     private $energy;
     private $energyLevel;
 
-    public function __construct(string $color, int $nbSeats, string $energy)
+    public function __construct(string $color, int $nbSeats, int $currentSpeed, string $energy)
     {
-        parent::__construct($color, $nbSeats);
+        parent::__construct($color, $nbSeats, $currentSpeed);
         $this->energy = $energy;
     }
 
@@ -38,5 +39,16 @@ class Cars extends Vehicle
     public function setEnergyLevel(int $energyLevel): void
     {
         $this->energyLevel = $energyLevel;
+    }
+
+
+    public function switchOn(): Bool
+    {
+            return True;
+    }
+
+    public function switchOff()
+    {
+        return False;
     }
 }
